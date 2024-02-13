@@ -17,11 +17,12 @@ void Usage(char *program) {
 
     printf("Usage: %s [OPTION...] <civic file>\n", program);
     printf("Options:\n");
-    printf("  -h                           This help message.\n");
-    printf("  --output/-o <output_file>    Output assembly to output file instead of STDOUT.\n");
-    printf("  --verbose/-v                 Enable verbose mode.\n");
-    printf("  --breakpoint/-b <breakpoint> Set a breakpoint.\n");
-    printf("  --structure/-s               Pretty print the structure of the compiler.\n");
+    printf("  -h                                This help message.\n");
+    printf("  --output/-o <output_file>         Output assembly to output file instead of STDOUT.\n");
+    printf("  --verbose/-v                      Enable verbose mode.\n");
+    printf("  --breakpoint/-b <breakpoint>      Set a breakpoint.\n");
+    printf("  --structure/-s                    Pretty print the structure of the compiler.\n");
+    printf("  --max-reduction=/-s  <integer>    Set the maximum strenght of reduction.\n");
 }
 
 
@@ -34,13 +35,14 @@ static int ProcessArgs(int argc, char *argv[])
         {"output",  required_argument, 0, 'o'},
         {"breakpoint", required_argument, 0, 'b'},
         {"structure", no_argument, 0, 's'},
+        {"max-reduction", required_argument, 0, 'r'},
         {0, 0, 0, 0}};
 
   int option_index;
   int c;
 
   while (1) {
-      c = getopt_long(argc, argv, "hsvo:b:", long_options, &option_index);
+      c = getopt_long(argc, argv, "hsvo:b:r:", long_options, &option_index);
 
       // End of options
       if (c == -1)
@@ -70,6 +72,9 @@ static int ProcessArgs(int argc, char *argv[])
       case '?':
         Usage(argv[0]);
         exit(EXIT_FAILURE);
+        break;
+      case 'r':
+        global.max_strenght = atoi(optarg);
       }
   }
    if (optind == argc - 1) {
