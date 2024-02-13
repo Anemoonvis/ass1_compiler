@@ -34,6 +34,15 @@ phase Demo {
     }
 };
 
+phase one_four {
+    actions{
+        traversal StrengthReduction{
+            uid = SR,
+            nodes = { Binop }
+        };
+    }
+};
+
 /*** AST ***/
 
 enum MonOpType {
