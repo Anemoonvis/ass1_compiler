@@ -1,4 +1,7 @@
 a = (42 + 
 (13
                 * tutu));
+b = (hehe * 3);                
+b = (1 * hihi);
+c = (0 * haha);
 

@@ -4,6 +4,7 @@ start phase RootPhase {
     actions {
         pass SPdoScanParse;
         Demo;
+        one_four;
         print;
     }
 };
