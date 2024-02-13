@@ -1,0 +1,39 @@
+#include "civic.h"
+#include "core.h"
+
+export void fibs(int n){
+    for (int i = 1, n + 1){
+        printInt(fib(i));
+        printNewlines(1);
+    }
+}
+
+export void primes(int n){
+    int number = 2;
+    bool isprime(int n){
+        int half = n / 2;
+        if (half == 0){
+            return false;
+        }
+        for (int i = 2, half + 1){
+            if (n % i == 0){
+                return false;
+            }
+        }
+        return true;
+    }
+    while (n > 0){
+         if (isprime(number)){
+            printInt(number);
+            printNewlines(1);
+            n = n - 1;
+         }
+         number = number + 1;
+    }
+}
+
+// export int main(){
+//     fibs(5);
+//     primes(70);
+//     return 0;
+// }

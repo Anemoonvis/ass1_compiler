@@ -1,0 +1,67 @@
+#include "civic.h"
+
+export int gcd(int a, int b){
+    if (b != 0) {
+        return gcd(b, a % b);
+    } else {
+        return a;
+    }
+}
+
+export int fac(int n){
+    if (n > 0) {
+        return n * fac(n - 1);
+    } else {
+        return 1;
+    }
+}
+
+export int fib(int n){
+    int first = 0;
+    int second = 1;
+    int next = 0;
+    if (n == 1){
+        return first;
+    }
+    if (n == 2){
+        return second;
+    }
+    for (int i = 2, n){
+        next = first + second;
+        first = second;
+        second = next;
+    }
+    return next;
+}
+
+export bool isprime(int n){
+    int half = n / 2;
+    if (half == 0){
+        return false;
+    }
+    for (int i = 2, half + 1){
+        if (n % i == 0){
+            return false;
+        }
+    }
+    return true;
+}
+
+// export int main(){
+//     // printInt(fib(6));
+//     // printNewlines(1);
+//     // printInt(fib(7));
+//     // printNewlines(1);
+//     // printInt(fib(8));
+//     // printNewlines(1);
+//     // printInt(fib(9));
+//     // printNewlines(1);
+//     // printInt(fib(10));
+//     // printNewlines(1);
+
+//     printInt((int)isprime(71));
+//     printNewlines(1);
+//     printInt((int)isprime(70));
+//     printNewlines(1);
+//     return 0;
+// }
