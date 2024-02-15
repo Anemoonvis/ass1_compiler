@@ -22,16 +22,13 @@ void CIfini() { return; }
  */
 node_st *CIprogram(node_st *node)
 {
-    struct data_ci *data = DATA_CI_GET();
-    printf("%d", data->add);
     TRAVchildren(node);
-    data = DATA_CI_GET();
-    printf("%d", data->add);
-    printf("%d", data->mul);
-    printf("%d", data->div);
-    printf("%d", data->mod);
-    printf("%d", data->sub);
-
+    struct data_ci *data = DATA_CI_GET();
+    PROGRAM_ADD(node) = data->add;
+    PROGRAM_DIV(node) = data->div;
+    PROGRAM_MOD(node) = data->mod;
+    PROGRAM_MUL(node) = data->mul;
+    PROGRAM_SUB(node) = data->sub;
     return node;
 }
 
