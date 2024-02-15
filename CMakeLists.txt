@@ -37,6 +37,7 @@ add_executable(civicc ${FLEX_CivicLexer_OUTPUTS} ${BISON_CivicParser_OUTPUTS}
 
     # Solutions assignment 1:
     src/framework_assignments/strength_reduction.c
+    src/framework_assignments/collect_information.c
 )
 
 target_compile_options(civicc PRIVATE

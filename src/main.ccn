@@ -4,7 +4,7 @@ start phase RootPhase {
     actions {
         pass SPdoScanParse;
         Demo;
-        one_four;
+        assignments;
         print;
     }
 };
@@ -35,11 +35,22 @@ phase Demo {
     }
 };
 
-phase one_four {
+phase assignments {
     actions{
         traversal StrengthReduction{
             uid = SR,
             nodes = { Binop }
+        };
+        traversal CollectInformation{
+            uid = CI,
+            nodes = { Program, Binop },
+            travdata {
+                int add,
+                int sub,
+                int mul,
+                int div,
+                int mod
+            }
         };
     }
 };
@@ -70,6 +81,13 @@ nodeset Link = Expr | Stmt;
 root node Program {
     children {
         Stmts stmts { constructor, mandatory }
+    },
+    attributes {
+        int add,
+        int sub,
+        int mul,
+        int div,
+        int mod
     }
 };
 
