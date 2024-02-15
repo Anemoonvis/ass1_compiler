@@ -52,6 +52,13 @@ phase assignments {
                 int mod
             }
         };
+        traversal HashIdentifiers{
+            uid = HI,
+            nodes = { Var, VarLet},
+            travdata {
+                user htable_stptr hash
+            }
+        };
     }
 };
 
