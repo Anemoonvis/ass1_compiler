@@ -1,5 +1,8 @@
+// Implementation of assignment 1.3; Thijs Vromen 12026069; NB very little comments,
+// because it seems to be elementary programming to get used to civicc.
 #include "civic.h"
 
+// Functions to print int/float vectors to stdout.
 export void printIntVec(int[n] vec){
     for (int i = 0, n - 1){
         printInt(vec[i]);
@@ -18,34 +21,7 @@ export void printFloatVec(float[n] vec ){
     printNewlines(1);
 }
 
-export void scanIntVec(int[n] vec ){
-    for (int i = 0, n){
-        vec[i] = scanInt();
-    }
-}
-
-export void scanFloatVec(float[n] vec ){
-    for (int i = 0, n){
-        vec[i] = scanFloat();
-    }
-}
-
-export void scanIntMat(int[m, n] mat ){
-    for (int i = 0, m){
-        for (int j = 0, n){
-            mat[i,j] = scanInt();
-        }
-    }
-}
-
-export void scanFloatMat(float[m, n] mat ){
-    for (int i = 0, m){
-        for (int j = 0, n){
-            mat[i,j] = scanFloat();
-        }
-    }
-}
-
+// Functions to print int/float matrices to stdout.
 export void printIntMat(int[m, n] mat){
     for (int i = 0, m){
         for (int j = 0, n){
@@ -66,49 +42,46 @@ export void printFloatMat(float[m, n] mat){
     }
 }
 
+// Functions to scan int/float vectors from stdin.
+export void scanIntVec(int[n] vec ){
+    for (int i = 0, n){
+        vec[i] = scanInt();
+    }
+}
+
+export void scanFloatVec(float[n] vec ){
+    for (int i = 0, n){
+        vec[i] = scanFloat();
+    }
+}
+
+// Functions to scan int/float matrices from stdin.
+export void scanIntMat(int[m, n] mat ){
+    for (int i = 0, m){
+        for (int j = 0, n){
+            mat[i,j] = scanInt();
+        }
+    }
+}
+
+export void scanFloatMat(float[m, n] mat ){
+    for (int i = 0, m){
+        for (int j = 0, n){
+            mat[i,j] = scanFloat();
+        }
+    }
+}
+
+
+// Multiply two float matrices (a and b) and store the result in c.
 export void matMul(float[m, n] a, float[o, p] b, float[q, l] c){
     for (int i = 0, m){
         for (int j = 0, p){
+            // Calculate the result entry c[i, j] by summing the pairwise products.
             c[i, j] = 0.0;
             for (int x = 0, n){
                 c[i, j] += a[i, x] * b[x, j];
             }
         }
     }
-}
-
-export int main(){
-    int[1] intje = [42];
-    int[5] ints = [0, 1, 2, -3, 4];
-    float[1] floatie = [42.42];
-    float[3] floats = [1.1, 0.0, -7.3];
-    float[3,2] matInt = [[1.0, 2.0],
-                         [1.1, 3.1],
-                         [7.7, 6.4]];
-    float[2,1] matTwo = [[1.1], [6.8]];
-    float[3,1] matRes= [[0.0], [1.1], [2.2]];
-    // printFloatMat(matInt);
-    // printFloatMat(matTwo);
-    matMul(matInt, matTwo, matRes);
-    printFloatMat(matRes);
-    // scanFloatMat(matInt);
-    // printFloatMat(matInt);
-
-    
-    // printIntVec(intje);
-    //printIntVec(ints);
-    // printFloatVec(floatie);
-    // printFloatVec(floats);
-    // scanIntVec(intje);
-    // printIntVec(intje);
-    // scanIntVec(ints);
-    // printIntVec(ints);
-    // scanFloatVec(floatie);
-    // printFloatVec(floatie);
-    // scanFloatVec(floats);
-    // printFloatVec(floats);
-    //printInt(matInt[0,0]);
-
-    
-    return 0;
 }

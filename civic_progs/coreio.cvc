@@ -1,6 +1,11 @@
+// Implementation of assignment 1.2; Thijs Vromen 12026069; NB very little comments,
+// because it seems to be elementary programming to get used to civicc.
 #include "civic.h"
 #include "core.h"
 
+// Print the first n fibonacci numbers, using fib() from core.cvc. 
+// (of course recalculates all the intermediate numbers for each new number, 
+// so could be far more efficient.)
 export void fibs(int n){
     for (int i = 1, n + 1){
         printInt(fib(i));
@@ -8,8 +13,12 @@ export void fibs(int n){
     }
 }
 
+// Print the first n primes, using a nested clone of isprime() from core.cvc.
+// (similarly inefficient.)
 export void primes(int n){
     int number = 2;
+
+    // Cloned helper function.
     bool isprime(int n){
         int half = n / 2;
         if (half == 0){
@@ -22,6 +31,7 @@ export void primes(int n){
         }
         return true;
     }
+
     while (n > 0){
          if (isprime(number)){
             printInt(number);
@@ -31,9 +41,3 @@ export void primes(int n){
          number = number + 1;
     }
 }
-
-// export int main(){
-//     fibs(5);
-//     primes(70);
-//     return 0;
-// }

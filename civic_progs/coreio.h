@@ -1,7 +1,7 @@
 #ifndef COREIO
 #define COREIO
 
-export void fibs(int n);
-
+extern void fibs(int n);
+extern void primes(int n);
 
 #endif

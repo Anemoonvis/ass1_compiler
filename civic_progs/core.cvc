@@ -1,5 +1,8 @@
+// Implementation of assignment 1.1; Thijs Vromen 12026069; NB very little comments,
+// because it seems to be elementary programming to get used to civicc.
 #include "civic.h"
 
+// Calculate the greatest common denominator of ints a and b.
 export int gcd(int a, int b){
     if (b != 0) {
         return gcd(b, a % b);
@@ -8,6 +11,7 @@ export int gcd(int a, int b){
     }
 }
 
+// Calculate the factorial of int n.
 export int fac(int n){
     if (n > 0) {
         return n * fac(n - 1);
@@ -16,6 +20,8 @@ export int fac(int n){
     }
 }
 
+// Calculate the nth fibonacci number, using a for loop and 'next' placeholder
+// to avoid calculating intermediate numbers multiple times.
 export int fib(int n){
     int first = 0;
     int second = 1;
@@ -34,6 +40,7 @@ export int fib(int n){
     return next;
 }
 
+// Return true if the input int n is a prime, false otherwise.
 export bool isprime(int n){
     int half = n / 2;
     if (half == 0){
@@ -46,22 +53,3 @@ export bool isprime(int n){
     }
     return true;
 }
-
-// export int main(){
-//     // printInt(fib(6));
-//     // printNewlines(1);
-//     // printInt(fib(7));
-//     // printNewlines(1);
-//     // printInt(fib(8));
-//     // printNewlines(1);
-//     // printInt(fib(9));
-//     // printNewlines(1);
-//     // printInt(fib(10));
-//     // printNewlines(1);
-
-//     printInt((int)isprime(71));
-//     printNewlines(1);
-//     printInt((int)isprime(70));
-//     printNewlines(1);
-//     return 0;
-// }
