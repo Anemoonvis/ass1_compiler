@@ -22,7 +22,7 @@ void Usage(char *program) {
     printf("  --verbose/-v                      Enable verbose mode.\n");
     printf("  --breakpoint/-b <breakpoint>      Set a breakpoint.\n");
     printf("  --structure/-s                    Pretty print the structure of the compiler.\n");
-    printf("  --max-reduction=/-s  <integer>    Set the maximum strenght of reduction.\n");
+    printf("  --max-reduction=/-r  <integer>    Set the maximum strenght of reduction.\n");
 }
 
 

@@ -18,12 +18,12 @@
 node_st *PRTprogram(node_st *node)
 {
     TRAVstmts(node);
+    // For 1.5.
     printf("Addition occurs %d time(s).\n", PROGRAM_ADD(node));
     printf("Subtraction occurs %d time(s).\n", PROGRAM_SUB(node));
     printf("Multiplication occurs %d time(s).\n", PROGRAM_MUL(node));
     printf("Division occurs %d time(s).\n", PROGRAM_DIV(node));
     printf("Modulo occurs %d time(s).\n", PROGRAM_MOD(node));
-    
     return node;
 }
 

@@ -35,12 +35,17 @@ phase Demo {
     }
 };
 
+// The phase that executes the traversals related to assignments 1.4-1.6.
 phase assignments {
     actions{
+
+        // Assignment 1.4.
         traversal StrengthReduction{
             uid = SR,
             nodes = { Binop }
         };
+
+        // Assignment 1.5.
         traversal CollectInformation{
             uid = CI,
             nodes = { Program, Binop },
@@ -52,9 +57,11 @@ phase assignments {
                 int mod
             }
         };
+
+        // Assignment 1.6.
         traversal HashIdentifiers{
             uid = HI,
-            nodes = { Var, VarLet},
+            nodes = { Program, Var, VarLet},
             travdata {
                 user htable_stptr hash
             }

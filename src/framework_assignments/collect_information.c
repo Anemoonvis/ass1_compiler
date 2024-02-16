@@ -4,21 +4,20 @@
  * Traversal: CollectInformation
  * UID      : CI
  *
- *
+ * Solution 1.5 by Thijs Vromen 12026069.
  */
 
 #include "ccn/ccn.h"
 #include "ccngen/ast.h"
 #include "ccngen/trav.h"
 
-// REMOVE WHEN NO LONGER USED!!
-#include <stdio.h>
-
 void CIinit() { return; }
 void CIfini() { return; }
 
 /**
  * @fn CIprogram
+ * When the traverse is done, store the values in the program node so it can be accessed 
+ * in the print.
  */
 node_st *CIprogram(node_st *node)
 {
@@ -34,6 +33,8 @@ node_st *CIprogram(node_st *node)
 
 /**
  * @fn CIbinop
+ * Increase the counter of the operation in the traversal attribute struct, 
+ * if it is one of the fiver arithmetic operators.
  */
 node_st *CIbinop(node_st *node)
 {
