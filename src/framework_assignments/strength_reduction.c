@@ -6,7 +6,7 @@
  *
  * Solution 1.4 !including bonus! by Thijs Vromen 12026069
  * Example of using the bonus: ./build-debug/civicc ./test/test2_edited.cvc -r 8
- * For the bonus changes were also made in main.c.
+ * For the bonus changes were also made in main.c and in globals.
  */
 
 #include "ccn/ccn.h"
